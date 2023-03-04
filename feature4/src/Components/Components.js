@@ -1,8 +1,8 @@
 import React from "react";
-import MainModule from "./Main/Main.js";
+import Game from "./Game/Game.js";
 
 const Components = () => {
-  return <MainModule />;
+  return <Game />;
 };
 
 export default Components;
