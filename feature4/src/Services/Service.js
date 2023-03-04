@@ -15,3 +15,12 @@ export const getAllUsers = () => {
     return questions;
   });
 };
+
+export const getAllStats = () => {
+  const Stats = Parse.Object.extend("Stats");
+  const query = new Parse.Query(Stats);
+  return query.find().then((stats) => {
+    console.log(stats);
+    return stats;
+  });
+};
