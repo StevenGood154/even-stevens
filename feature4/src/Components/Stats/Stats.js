@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { getAllStats } from "../../Services/TriviaQuestions.js";
+import { getAllAccounts } from "../../Services/TriviaQuestions.js";
 
 const MainList = () => {
-    const [stats, setStats] = useState([]);
-  
+    const [accounts, setUsers] = useState([]);
+
     useEffect(() => {
-      getAllStats().then((stat) => {
-        setStats(stat);
+      getAllAccounts().then((accout) => {
+        setUsers(accout);
       });
     }, []);
   
@@ -14,11 +14,11 @@ const MainList = () => {
       <div>
         <hr />
         <h3>This is the stats component</h3>
-        {stats.length > 0 && (
+        {accounts.length > 0 && (
           <ul>
-            {stats.map((stat) => (
-              <li key={stat.get("user")}>
-                {stat.get("user")}: Top Score: {stat.get("topScore")}, Questions Answered: {stat.get("questionsAnswered")}
+            {accounts.map((accout) => (
+              <li key={accout.id}>
+                {accout.get("name")}: Top Score: {accout.get("highScore")}, Questions Answered: {accout.get("questionsAnswered")}
               </li>
             ))}
           </ul>

@@ -14,11 +14,19 @@ export const getQuestions = () => {
   });
 };
 
-export const getAllStats = () => {
-  const Stats = Parse.Object.extend("Stats");
-  const query = new Parse.Query(Stats);
-  return query.find().then((stats) => {
-    console.log(stats);
-    return stats;
+// currently unused
+export const getAllCategories = () => {
+  const Category = Parse.Object.extend("Category");
+  const query = new Parse.Query(Category);
+  return query.find().then((categories) => {
+    return categories;
+  });
+};
+
+export const getAllAccounts = () => {
+  const Account = Parse.Object.extend("Account");
+  const query = new Parse.Query(Account);
+  return query.find().then((users) => {
+    return users;
   });
 };
