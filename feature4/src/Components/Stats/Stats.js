@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getAllStats } from "../Services/Service.js";
+import { getAllStats } from "../../Services/TriviaQuestions.js";
 
 const MainList = () => {
     const [stats, setStats] = useState([]);
