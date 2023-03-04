@@ -12,6 +12,6 @@ const Components = () => {
       </Routes>
     </Router>
   );
-};
+ }
 
 export default Components;
