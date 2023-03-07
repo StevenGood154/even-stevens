@@ -14,3 +14,12 @@ export const getAllCategories = () => {
     return categories;
   });
 };
+
+// Get a category for a specific ID, taken from the pointer in the Question class
+export const getCategoryById = (id) => {
+  const Category = Parse.Object.extend("Category");
+  const query = new Parse.Query(Category);
+  return query.get(id).then((result) => {
+    return result;
+  })
+}
