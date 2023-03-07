@@ -1,7 +1,18 @@
 import Button from "./Button.js";
 import "./Question.css"
+import { useEffect, useState } from "react";
+import { getCategoryById } from "../../Services/CategoryService.js";
 
 const Question = ({ data }) => {
+  const [cat, setCat] = useState("undefined"); 
+
+  useEffect(() => {
+    getCategoryById(data.get("categoryId").id).then((questionCategory) => {
+      let newCategory = questionCategory.get("name");
+      setCat(newCategory.charAt(0).toUpperCase() + newCategory.slice(1));
+    });
+  }, [data]);
+
   function correctClick(e) {
     e.target.className = "button correct";
   }
@@ -38,6 +49,7 @@ const Question = ({ data }) => {
   );
 
   return (<div className="questionBlock">
+    <p className="questiontext">Category: {cat}</p>
     <p className="questionText">{newQuestion}</p>
     <ul className="answerChoiceBlock">
       {shuffledAnswerChoices.map((a) => {
