@@ -1,11 +1,12 @@
 import Button from "./Button.js";
+import "./Question.css"
 
 const Question = ({ data }) => {
-  function correctClick() {
-    console.log("Correct!");
+  function correctClick(e) {
+    e.target.className = "button correct";
   }
-  function incorrectClick() {
-    console.log("Incorrect");
+  function incorrectClick(e) {
+    e.target.className = "button incorrect";
   }
 
   let txt = new DOMParser().parseFromString(data.get("question"), "text/html");
@@ -17,7 +18,7 @@ const Question = ({ data }) => {
   />);
 
   const incorrectAnswerButtonsHTML = data.get("incorrect_answers").map(
-    (incorrect_answer, index) => {
+    (incorrect_answer) => {
       return (<Button 
         buttonText={incorrect_answer}
         onAnswerChoiceClick={incorrectClick}
@@ -37,8 +38,8 @@ const Question = ({ data }) => {
   );
 
   return (<div className="questionBlock">
-    <p className="questionText">Question: {newQuestion}</p>
-    <ul>
+    <p className="questionText">{newQuestion}</p>
+    <ul className="answerChoiceBlock">
       {shuffledAnswerChoices.map((a) => {
         console.log()
         return (<li key={a.props.buttonText}> {a}</li>);

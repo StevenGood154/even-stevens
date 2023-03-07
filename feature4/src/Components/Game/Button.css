@@ -1,0 +1,29 @@
+.button {
+  border-width: 4px;
+  border-radius: 4px;
+  width: 300px;
+  height: 80px;
+  background-color: lightgray;
+  border-color: darkgray;
+  border-style: solid;
+
+  font-size: 20px;
+  font-family: 'Roboto Slab', serif;
+}
+
+.button:hover {
+  border-color: gray;
+  border-radius: 4px;
+}
+
+.incorrect {
+  background-color: darkred;
+  border-color: rgb(182, 35, 35);
+  color: white;
+}
+
+.correct {
+  background-color: darkgreen;
+  border-color: green;
+  color: white;
+}
