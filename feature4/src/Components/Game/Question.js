@@ -1,12 +1,13 @@
+import { createRef } from "react";
 import Button from "./Button.js";
 import "./Question.css"
 
 const Question = ({ data }) => {
-  function correctClick() {
-    console.log("Correct!");
+  function correctClick(e) {
+    e.target.className = "button correct";
   }
-  function incorrectClick() {
-    console.log("Incorrect");
+  function incorrectClick(e) {
+    e.target.className = "button incorrect";
   }
 
   let txt = new DOMParser().parseFromString(data.get("question"), "text/html");
