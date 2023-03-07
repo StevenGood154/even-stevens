@@ -1,3 +1,5 @@
+import "./Button.css";
+
 // buttonText : what is displayed on button
 const Button = ({ buttonText, onAnswerChoiceClick }) => {
   let txt = new DOMParser().parseFromString(buttonText, "text/html");
