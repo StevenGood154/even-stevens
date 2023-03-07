@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getAllAccounts } from "../../Services/TriviaQuestions.js";
+import { Link } from "react-router-dom";
 
 const MainList = () => {
     const [accounts, setUsers] = useState([]);
@@ -12,7 +13,7 @@ const MainList = () => {
   
     return (
       <div>
-        <hr />
+        <Link to="/">Back to Questions</Link>
         <h3>This is the stats component</h3>
         {accounts.length > 0 && (
           <ul>
