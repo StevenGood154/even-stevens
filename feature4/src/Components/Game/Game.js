@@ -2,7 +2,7 @@ import React from "react";
 import Question from "./Question";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getQuestions } from "../../Services/TriviaQuestions.js";
+import { getQuestions } from "../../Services/QuestionsService";
 import "./Game.css";
 
 const Game = () => {

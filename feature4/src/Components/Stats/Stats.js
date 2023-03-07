@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getAllAccounts } from "../../Services/TriviaQuestions.js";
+import { getAllAccounts } from "../../Services/AccountsService.js";
 import { Link } from "react-router-dom";
 
 const MainList = () => {
