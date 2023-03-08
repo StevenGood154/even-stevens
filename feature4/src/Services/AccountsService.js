@@ -6,6 +6,7 @@ Parse.initialize(
 );
 Parse.serverURL = "https://parseapi.back4app.com/";
 
+// Loads Account objects (stats) for all users
 export const getAllAccounts = () => {
   const Account = Parse.Object.extend("Account");
   const query = new Parse.Query(Account);
@@ -13,3 +14,5 @@ export const getAllAccounts = () => {
     return users;
   });
 };
+
+// To do: load an account for a specific user, to get their individual stats

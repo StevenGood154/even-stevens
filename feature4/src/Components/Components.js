@@ -4,6 +4,7 @@ import Stats from './Stats/Stats.js';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 const Components = () => {
+  // Currently routing to the main Game page as well as a Stats page, may eventually add more routes
   return (
     <Router>
       <Routes>

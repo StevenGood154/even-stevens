@@ -8,6 +8,7 @@ import "./Game.css";
 const Game = () => {
   const [questions, setQuestions] = useState([]);
 
+  // Gets questions from backend database
   useEffect(() => {
     getQuestions().then((questions) => {
       setQuestions(questions);
