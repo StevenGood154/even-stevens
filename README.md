@@ -1,8 +1,5 @@
-# even-stevens
+Steven Good Steven Broussard
 
-Steven Good
-Steven Broussard
-
-Features are split into seperate folders. For example to run feature 4, naviget to the feature4 directory before running 'npm start'. 
+Run npm start in this folder to run the app.
 
 Component trees and UML diagrams can be found in the diagrams directory.
