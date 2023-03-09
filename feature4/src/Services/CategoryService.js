@@ -6,7 +6,7 @@ Parse.initialize(
 );
 Parse.serverURL = "https://parseapi.back4app.com/";
 
-// Currently Unused
+// Currently Unused, loads all Category objects from the database
 export const getAllCategories = () => {
   const Category = Parse.Object.extend("Category");
   const query = new Parse.Query(Category);

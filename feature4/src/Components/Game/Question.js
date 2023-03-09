@@ -13,9 +13,12 @@ const Question = ({ data }) => {
     });
   }, [data]);
 
+  // When a button with the right answer is clicked
   function correctClick(e) {
     e.target.className = "button correct";
   }
+
+  // When a button with the wrong answer is clicked
   function incorrectClick(e) {
     e.target.className = "button incorrect";
   }

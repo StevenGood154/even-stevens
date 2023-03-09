@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { getAllAccounts } from "../../Services/AccountsService.js";
 import { Link } from "react-router-dom";
 
-const MainList = () => {
+// Routed component that will eventually show stats for a specific user and by category
+const Stats = () => {
     const [accounts, setUsers] = useState([]);
 
     useEffect(() => {
@@ -28,4 +29,4 @@ const MainList = () => {
     );
   };
   
-  export default MainList;
+  export default Stats;
