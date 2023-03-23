@@ -1,0 +1,8 @@
+- Submitted on time
+- Comments in codebase (more than 5). These can be used to detail future work or explain sections in HTML, CSS, or JS
+- Correctly versioned release 0.3.0 created on Github and updated CHANGELOG.md
+- No errors (no errors in console)
+- All protected routes cannot be navigated to without authentication
+- Protected routes redirect to the auth component
+- User cannot route to auth (login/signup) if already logged in
+- Place authentication methods in separate service, and user manually typing in URL to protected route will redirect if unauthenticated
