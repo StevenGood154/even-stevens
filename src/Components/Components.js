@@ -12,13 +12,12 @@ const Components = () => {
   return (
     <Router>
       <Routes>
-        {/* <Route path="/" element={<Game />}></Route> */}
-        <Route path="/" element={<ProtectedRoute path="/" element={Game} />}></Route>
-        <Route path="/stats" element={<Stats />}></Route>
-        <Route path="/auth" element={<AuthModule />}></Route>
+        <Route path="/" element={<AuthModule />}></Route>
         <Route path="/auth/register" element={<AuthRegister />}></Route>
         <Route path="/auth/login" element={<AuthLogin />}></Route>
-        <Route path="*" element={<Navigate to="/auth" replace />} />
+        <Route path="/game" element={<ProtectedRoute path="/game" element={Game} />}></Route>
+        <Route path="/stats" element={<Stats />}></Route>
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
   );

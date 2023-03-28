@@ -20,7 +20,7 @@ const AuthRegister = () => {
   useEffect(() => {
     if (checkUser()) {
       alert("You are already logged in");
-      navigate("/");
+      navigate("/game");
     }
   }, [navigate]);
 
@@ -33,7 +33,7 @@ const AuthRegister = () => {
           alert(
             `${userCreated.get("firstName")}, you successfully registered!`
           );
-          navigate("/");
+          navigate("/game");
         }
         // TODO: redirect user to main app
         setAdd(false);
