@@ -1,66 +1,59 @@
 import Button from "./Button.js";
-import "./Question.css"
+import "./Question.css";
 import { useEffect, useState } from "react";
 import { getCategoryById } from "../../Services/CategoryService.js";
 
-const Question = ({ data }) => {
-  const [cat, setCat] = useState("undefined"); 
+const Question = ({
+  questionText,
+  answers,
+  correctAnswer,
+  category,
+  onQuestionRight,
+  onQuestionWrong,
+}) => {
+  const [shuffledAnswers, setShuffledAnswers] = useState(null);
+  // const [cat, setCat] = useState(null);
+
+  // useEffect(() => {
+  //   getCategoryById(categoryId).then((questionCategory) => {
+  //     setCat(
+  //       questionCategory.get("name").charAt(0).toUpperCase() +
+  //         questionCategory.get("name").slice(1)
+  //     );
+  //   });
+  // }, [categoryId]);
 
   useEffect(() => {
-    getCategoryById(data.get("categoryId").id).then((questionCategory) => {
-      let newCategory = questionCategory.get("name");
-      setCat(newCategory.charAt(0).toUpperCase() + newCategory.slice(1));
-    });
-  }, [data]);
+    if (answers) {
+      setShuffledAnswers(
+        answers
+          .map((answer) => ({ text: answer, isCorrect: answer === correctAnswer }))
+          .sort(() => Math.random() - 0.5)
+      );
+    }
+  }, [answers, correctAnswer]);
 
-  // When a button with the right answer is clicked
-  function correctClick(e) {
-    e.target.className = "button correct";
-  }
-
-  // When a button with the wrong answer is clicked
-  function incorrectClick(e) {
-    e.target.className = "button incorrect";
-  }
-
-  let txt = new DOMParser().parseFromString(data.get("question"), "text/html");
+  let txt = new DOMParser().parseFromString(questionText, "text/html");
   let newQuestion = txt.documentElement.textContent;
 
-  const correctAnswerButtonHTML = (<Button
-    buttonText={data.get("correct_answer")}
-    onAnswerChoiceClick={correctClick}
-  />);
-
-  const incorrectAnswerButtonsHTML = data.get("incorrect_answers").map(
-    (incorrect_answer) => {
-      return (<Button 
-        buttonText={incorrect_answer}
-        onAnswerChoiceClick={incorrectClick}
-      />);
-    }
+  return (
+    <div className="questionBlock">
+      <p>Category: {category}</p>
+      <p className="questionText">{newQuestion}</p>
+      {shuffledAnswers && (
+        <ul className="answerChoiceBlock">
+          {shuffledAnswers.map((answer) => (
+            <li key={answer.text}>
+              <Button
+                buttonText={answer.text}
+                onAnswerChoiceClick={answer.isCorrect ? onQuestionRight : onQuestionWrong}
+              />
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
-
-  const answerChoices = [
-    incorrectAnswerButtonsHTML[0],
-    incorrectAnswerButtonsHTML[1],
-    incorrectAnswerButtonsHTML[2],
-    correctAnswerButtonHTML
-  ];
-
-  const shuffledAnswerChoices = answerChoices.sort(
-    (a, b) => 0.5 - Math.random()
-  );
-
-  return (<div className="questionBlock">
-    <p className="questiontext">Category: {cat}</p>
-    <p className="questionText">{newQuestion}</p>
-    <ul className="answerChoiceBlock">
-      {shuffledAnswerChoices.map((a) => {
-        console.log()
-        return (<li key={a.props.buttonText}> {a}</li>);
-      })}
-    </ul>
-  </div>);
 };
 
 export default Question;
