@@ -1,7 +1,6 @@
 import Button from "./Button.js";
 import "./Question.css";
 import { useEffect, useState } from "react";
-import { getCategoryById } from "../../Services/CategoryService.js";
 
 const Question = ({
   questionText,

@@ -3,7 +3,7 @@ import Question from "./Question";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getQuestions } from "../../Services/QuestionsService";
-import { getCategoriesPerQuestion, getCategoryById } from "../../Services/CategoryService";
+import { getCategoryById } from "../../Services/CategoryService";
 import "./Game.css";
 
 const Game = () => {
