@@ -3,7 +3,7 @@ import Question from "./Question";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getQuestions } from "../../Services/QuestionsService";
-import { getCategoriesPerQuestion, getCategoryById } from "../../Services/CategoryService";
+import { getCategoryById } from "../../Services/CategoryService";
 import "./Game.css";
 
 const Game = () => {
@@ -28,14 +28,14 @@ const Game = () => {
 
   // When a button with the right answer is clicked
   function onQuestionRight(e) {
-    e.target.className = "button correct";
+    e.target.className = "correctButton";
     console.log("Good Job!")
     setTimeout(() => setQuestionNumber(questionNumber + 1), 250);
   }
 
   // When a button with the wrong answer is clicked
   function onQuestionWrong(e) {
-    e.target.className = "button incorrect";
+    e.target.className = "incorrectButton";
     console.log("Too Bad!")
     setTimeout(() => setQuestionNumber(questionNumber + 1), 1500);
   }
