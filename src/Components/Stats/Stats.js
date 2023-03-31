@@ -14,7 +14,7 @@ const Stats = () => {
   
     return (
       <div>
-        <Link to="/">Back to Questions</Link>
+        <Link to="/game">Back to Questions</Link>
         <h3>This is the stats component</h3>
         {accounts.length > 0 && (
           <ul>

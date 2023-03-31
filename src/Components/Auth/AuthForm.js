@@ -1,4 +1,5 @@
 import React from "react";
+import './Button.css';
 
 const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
 
@@ -30,6 +31,7 @@ const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
             value={user.lastName}
             onChange={onChange}
             name="lastName"
+            placeholder="last name"
             required
           />
         </div>{" "}
@@ -45,6 +47,7 @@ const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
             value={user.email}
             onChange={onChange}
             name="email"
+            placeholder="email"
             required
           />
         </div>{" "}
@@ -59,11 +62,12 @@ const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
             onChange={onChange}
             name="password"
             min="0"
+            placeholder="password"
             required
           />
         </div>
         <div className="form-group">
-          <button type="submit" className="btn btn-primary" onSubmit={onSubmit}>
+          <button type="submit" className="submitButton" onSubmit={onSubmit}>
             Submit
           </button>
         </div>

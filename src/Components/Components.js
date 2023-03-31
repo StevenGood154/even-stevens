@@ -13,11 +13,11 @@ const Components = () => {
     <Router>
       <Routes>
         <Route path="/" element={<AuthModule />}></Route>
-        <Route path="/auth/register" element={<AuthRegister />}></Route>
-        <Route path="/auth/login" element={<AuthLogin />}></Route>
+        <Route path="/register" element={<AuthRegister />}></Route>
+        <Route path="/login" element={<AuthLogin />}></Route>
         <Route path="/game" element={<ProtectedRoute path="/game" element={Game} />}></Route>
-        <Route path="/stats" element={<Stats />}></Route>
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="/stats" element={<ProtectedRoute path="/stats" element={Stats} />}></Route>
+        <Route path="*" element={<Navigate to="/game" replace />} />
       </Routes>
     </Router>
   );

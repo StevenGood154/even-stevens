@@ -2,11 +2,10 @@ import React, { useEffect, useState } from "react";
 import { checkUser, loginUser } from "./AuthService";
 import AuthForm from "./AuthForm";
 import { useNavigate } from "react-router-dom";
+import './Button.css';
 
 const AuthLogin = () => {
   const navigate = useNavigate();
-
-  // redirect already authenticated users back to home
   const [currentUser, setCurrentUser] = useState({
     email: "",
     password: ""
@@ -15,6 +14,8 @@ const AuthLogin = () => {
   // flags in the state to watch for add/remove updates
   const [add, setAdd] = useState(false);
 
+
+  // don't let user do anything if they're already logged in
   useEffect(() => {
     if (checkUser()) {
       alert("You are already logged in");
@@ -28,11 +29,10 @@ const AuthLogin = () => {
       loginUser(currentUser).then((userLoggedIn) => {
         if (userLoggedIn) {
           alert(
-            `${userLoggedIn.get("firstName")}, you successfully logged in!`
+            `Hello ${userLoggedIn.get("firstName")}, you successfully logged in!`
           );
           navigate("/game");
         }
-        // TODO: redirect user to main app
         setAdd(false);
       });
     }
@@ -57,7 +57,7 @@ const AuthLogin = () => {
   };
 
   return (
-    <div>
+    <div className="box">
       <AuthForm
         user={currentUser}
         isLogin={true}

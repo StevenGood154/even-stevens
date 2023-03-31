@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { checkUser } from "./AuthService";
+import './Button.css';
 
 const AuthModule = () => {
   const navigate = useNavigate();
@@ -15,15 +16,18 @@ const AuthModule = () => {
   }, [navigate]);
 
   return (
-    <div>
-      <Link to="/auth/register">
-        <button>Register</button>
-      </Link>
-      <br />
-      <br />
-      <Link to="/auth/login">
-        <button>Login</button>
-      </Link>
+    <div className="box">
+      <div>
+        <h1>Trivia Game Login</h1>
+        <Link to="/register">
+          <button className="button">Register</button>
+        </Link>
+        <br />
+        <br />
+        <Link to="/login">
+          <button className="button">Login</button>
+        </Link>
+      </div>
     </div>
   );
 };
