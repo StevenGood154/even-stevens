@@ -17,3 +17,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Created parse objects to load the questions from backend database instead of using axios from a JSON file
  
 ### Fixed
+
+## [0.3.0] - 2023-04-05
+
+### Added
+
+- Added and styled authentication
+- User data now stored in backend for authentication
+ 
+### Changed
+  
+- Questions now appear one at a time instead of all at once
+ 
+### Fixed
