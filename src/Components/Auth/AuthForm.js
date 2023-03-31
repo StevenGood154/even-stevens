@@ -1,5 +1,5 @@
 import React from "react";
-import './Button.css';
+import './AuthButton.css';
 
 const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
 

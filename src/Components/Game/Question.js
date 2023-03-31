@@ -11,16 +11,6 @@ const Question = ({
   onQuestionWrong,
 }) => {
   const [shuffledAnswers, setShuffledAnswers] = useState(null);
-  // const [cat, setCat] = useState(null);
-
-  // useEffect(() => {
-  //   getCategoryById(categoryId).then((questionCategory) => {
-  //     setCat(
-  //       questionCategory.get("name").charAt(0).toUpperCase() +
-  //         questionCategory.get("name").slice(1)
-  //     );
-  //   });
-  // }, [categoryId]);
 
   useEffect(() => {
     if (answers) {

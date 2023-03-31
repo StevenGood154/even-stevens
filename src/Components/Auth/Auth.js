@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { checkUser } from "./AuthService";
-import './Button.css';
+import './AuthButton.css';
 
 const AuthModule = () => {
   const navigate = useNavigate();

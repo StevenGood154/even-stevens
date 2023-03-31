@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { checkUser, loginUser } from "./AuthService";
 import AuthForm from "./AuthForm";
 import { useNavigate } from "react-router-dom";
-import './Button.css';
+import './AuthButton.css';
 
 const AuthLogin = () => {
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ const AuthLogin = () => {
   // don't let user do anything if they're already logged in
   useEffect(() => {
     if (checkUser()) {
-      alert("You are already logged in");
+      alert("You are already logged in"); // Remove this in the future?
       navigate("/game");
     }
   }, [navigate]);
