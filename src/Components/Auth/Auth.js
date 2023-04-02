@@ -15,6 +15,7 @@ const AuthModule = () => {
     }
   }, [navigate]);
 
+  // Landing page with register and login buttons
   return (
     <div className="box">
       <div>

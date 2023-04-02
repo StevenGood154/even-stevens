@@ -11,7 +11,6 @@ const AuthLogin = () => {
     password: ""
   });
 
-  // flags in the state to watch for add/remove updates
   const [add, setAdd] = useState(false);
 
 
@@ -23,7 +22,6 @@ const AuthLogin = () => {
     }
   }, [navigate]);
 
-  // useEffect that run when changes are made to the state variable flags
   useEffect(() => {
     if (currentUser && add) {
       loginUser(currentUser).then((userLoggedIn) => {

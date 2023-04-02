@@ -3,6 +3,7 @@ import './AuthButton.css';
 
 const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
 
+  // Returns fields and labels for users to login or register
   return (
     <form onSubmit={onSubmit} autoComplete="off">
     {!isLogin ? 

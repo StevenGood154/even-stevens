@@ -6,7 +6,7 @@ Parse.initialize(
   );
 Parse.serverURL = "https://parseapi.back4app.com/";
 
-// used in auth register component
+// used in register component
 export const createUser = (newUser) => {
   const user = new Parse.User();
 
@@ -27,7 +27,7 @@ export const createUser = (newUser) => {
     });
 };
 
-// used in auth login component
+// used in login component
 export const loginUser = (currUser) => {
   const user = new Parse.User();
 
@@ -46,6 +46,7 @@ export const loginUser = (currUser) => {
     });
 };
 
+// Checks if user is already logged in, used in several components
 export const checkUser = () => {
   return Parse.User.current()?.authenticated;
 };
