@@ -28,5 +28,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
   
 - Questions now appear one at a time instead of all at once
+- Slight delay before next question loads if your answer is incorrect
  
 ### Fixed
