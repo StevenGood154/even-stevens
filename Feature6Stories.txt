@@ -1,0 +1,13 @@
+- Add a timer to the game
+  - Players should be able to play a game which involves answering as many questions as they can in a given amount of time (1 minute?)
+- Select category to only answer questions from a certain category
+- Get more questions into the database
+  - Download big CSV from trivia API with the questions/difficulty we want, upload to Parse
+- Improve stats page
+  - Display stats relevant to the logged-in user as well as some global stats
+  - Also need to modify stats when questions are answered
+- Improve styling of game
+  - Constant-sized questions
+  - Support for mobile
+- Log out button
+- Make sure user can only select one answer to a question
