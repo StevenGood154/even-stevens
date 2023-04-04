@@ -22,7 +22,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 
-- Added and styled authentication
+- Added and styled authentication with an add and register page
 - User data now stored in backend for authentication
  
 ### Changed
