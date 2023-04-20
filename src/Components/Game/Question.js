@@ -27,7 +27,7 @@ const Question = ({
 
   return (
     <div className="questionBlock">
-      <p>Category: {category}</p>
+      <p className="categoryText">Category: {category}</p>
       <p className="questionText">{newQuestion}</p>
       {shuffledAnswers && (
         <ul className="answerChoiceBlock">

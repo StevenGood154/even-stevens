@@ -1,5 +1,6 @@
 import React from "react";
 import Question from "./Question";
+import Timer from "./Timer";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getQuestions } from "../../Services/QuestionsService";
@@ -40,10 +41,15 @@ const Game = () => {
     setTimeout(() => setQuestionNumber(questionNumber + 1), 1500);
   }
 
+  function onTimerExpire() {
+    console.log("GAME OVER");
+  }
+
 
   return (
-    <div>
+    <div className="gameBox">
       <Link to="/stats">View User Stats</Link>
+      <Timer onTimerExpire={onTimerExpire}></Timer>
         {questions.length > 0 && (
           <Question 
             questionText={questions[questionNumber].get("question")}
