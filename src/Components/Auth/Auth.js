@@ -11,7 +11,7 @@ const AuthModule = () => {
   useEffect(() => {
     if (checkUser()) {
       alert("You are already logged in");
-      navigate("/game");
+      navigate("/select");
     }
   }, [navigate]);
 

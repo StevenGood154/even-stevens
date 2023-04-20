@@ -2,41 +2,33 @@ import React from "react";
 import Question from "./Question";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getQuestions } from "../../Services/QuestionsService";
-import { getCategoryById } from "../../Services/CategoryService";
+import { getQuestionsByCategory } from "../../Services/QuestionsService";
 import "./Game.css";
 
-const Game = () => {
+const Game = ({ category }) => {
   const [questions, setQuestions] = useState([]);
   const [questionNumber, setQuestionNumber] = useState(0);
-  const [categoriesPerQuestion, setCategoriesPerQuestion] = useState([]);
+  const [score, setScore] = useState(0);
 
   // Gets questions from backend database
   useEffect(() => {
-    getQuestions().then((questions) => {
+    getQuestionsByCategory(category).then((questions) => {
       setQuestions(questions);
     });
-  }, []);
-
-  useEffect(() => {
-    let categories = [];
-    questions.forEach(question => {
-      categories.push(getCategoryById(question.get("categoryId").id));
-    })
-    Promise.all(categories).then(cats => setCategoriesPerQuestion(cats));
-  }, [questions]);
+  }, [category]);
 
   // When a button with the right answer is clicked
   function onQuestionRight(e) {
     e.target.className = "correctButton";
-    console.log("Good Job!")
+    console.log("Good Job!");
     setTimeout(() => setQuestionNumber(questionNumber + 1), 250);
+    setScore(score + 1);
   }
 
   // When a button with the wrong answer is clicked
   function onQuestionWrong(e) {
     e.target.className = "incorrectButton";
-    console.log("Too Bad!")
+    console.log("Too Bad!");
     setTimeout(() => setQuestionNumber(questionNumber + 1), 1500);
   }
 
@@ -44,12 +36,12 @@ const Game = () => {
   return (
     <div>
       <Link to="/stats">View User Stats</Link>
+      <h2>Score: {score}</h2>
         {questions.length > 0 && (
           <Question 
             questionText={questions[questionNumber].get("question")}
             answers={[...questions[questionNumber].get("incorrect_answers"), questions[questionNumber].get("correct_answer")]}
             correctAnswer={questions[questionNumber].get("correct_answer")}
-            category={categoriesPerQuestion.length > questionNumber ? categoriesPerQuestion[questionNumber].get("name") : "None"}
             onQuestionRight={onQuestionRight}
             onQuestionWrong={onQuestionWrong}
           />

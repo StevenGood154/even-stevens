@@ -15,7 +15,11 @@ const ProtectedRoute = ({ element: Component, ...rest }) => {
   }, [navigate]);
 
   if (checkUser()) {
-    return <Component />;
+    if (rest['category']) {
+      return <Component category={rest['category']}/>;
+    } else {
+      return <Component />
+    }
   } else {
     return (<div></div>);
   }

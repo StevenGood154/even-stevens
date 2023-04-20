@@ -18,7 +18,7 @@ const AuthLogin = () => {
   useEffect(() => {
     if (checkUser()) {
       alert("You are already logged in"); // Remove this in the future?
-      navigate("/game");
+      navigate("/select");
     }
   }, [navigate]);
 
@@ -29,7 +29,7 @@ const AuthLogin = () => {
           alert(
             `Hello ${userLoggedIn.get("firstName")}, you successfully logged in!`
           );
-          navigate("/game");
+          navigate("/select");
         }
         setAdd(false);
       });
