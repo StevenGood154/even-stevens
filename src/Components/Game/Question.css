@@ -1,10 +1,15 @@
 .questionBlock {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.categoryText {
+  font-size: 16px;
+}
+
+.questionText {
   font-size: 32px;
-  width: 640px;
-  margin: 0;
-  padding: 80px;
-  list-style: none;
 }
 
 .answerChoiceBlock {
