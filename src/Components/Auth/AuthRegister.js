@@ -19,7 +19,7 @@ const AuthRegister = () => {
   useEffect(() => {
     if (checkUser()) {
       alert("You are already logged in");
-      navigate("/game");
+      navigate("/select");
     }
   }, [navigate]);
 
@@ -30,7 +30,7 @@ const AuthRegister = () => {
           alert(
             `${userCreated.get("firstName")}, you successfully registered!`
           );
-          navigate("/game");
+          navigate("/select");
         }
         setAdd(false);
       });

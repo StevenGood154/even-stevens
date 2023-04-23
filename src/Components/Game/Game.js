@@ -2,54 +2,51 @@ import React from "react";
 import Question from "./Question";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getQuestions } from "../../Services/QuestionsService";
-import { getCategoryById } from "../../Services/CategoryService";
+import { getQuestionsByCategory } from "../../Services/QuestionsService";
+import { logoutUser } from "../../Services/StatsService";
+import { updateStats } from "../../Services/StatsService";
 import "./Game.css";
 
-const Game = () => {
+const Game = ({ category }) => {
   const [questions, setQuestions] = useState([]);
-  const [questionNumber, setQuestionNumber] = useState(0);
-  const [categoriesPerQuestion, setCategoriesPerQuestion] = useState([]);
+  // const [questionNumber, setQuestionNumber] = useState(0);
+  // const [score, setScore] = useState(0);
+  const [data, setData] = useState([0, 0]);
 
   // Gets questions from backend database
   useEffect(() => {
-    getQuestions().then((questions) => {
+    getQuestionsByCategory(category).then((questions) => {
       setQuestions(questions);
     });
-  }, []);
-
-  useEffect(() => {
-    let categories = [];
-    questions.forEach(question => {
-      categories.push(getCategoryById(question.get("categoryId").id));
-    })
-    Promise.all(categories).then(cats => setCategoriesPerQuestion(cats));
-  }, [questions]);
+  }, [category]);
 
   // When a button with the right answer is clicked
   function onQuestionRight(e) {
     e.target.className = "correctButton";
-    console.log("Good Job!")
-    setTimeout(() => setQuestionNumber(questionNumber + 1), 250);
+    console.log("Good Job!");
+    updateStats(true, questions[data[0]].get('category'));
+    setTimeout(() => setData([data[0] + 1, data[1] + 1]), 250);
   }
 
   // When a button with the wrong answer is clicked
   function onQuestionWrong(e) {
     e.target.className = "incorrectButton";
-    console.log("Too Bad!")
-    setTimeout(() => setQuestionNumber(questionNumber + 1), 1500);
+    console.log("Too Bad!");
+    updateStats(false, questions[data[0]].get('category'));
+    setTimeout(() => setData([data[0] + 1, data[1]]), 1500);
   }
 
 
   return (
     <div>
       <Link to="/stats">View User Stats</Link>
+      <button onClick={logoutUser}>Log Out</button>
+      <h2>Score: {data[1]}</h2>
         {questions.length > 0 && (
           <Question 
-            questionText={questions[questionNumber].get("question")}
-            answers={[...questions[questionNumber].get("incorrect_answers"), questions[questionNumber].get("correct_answer")]}
-            correctAnswer={questions[questionNumber].get("correct_answer")}
-            category={categoriesPerQuestion.length > questionNumber ? categoriesPerQuestion[questionNumber].get("name") : "None"}
+            questionText={questions[data[0]].get("question")}
+            answers={[...questions[data[0]].get("incorrect_answers"), questions[data[0]].get("correct_answer")]}
+            correctAnswer={questions[data[0]].get("correct_answer")}
             onQuestionRight={onQuestionRight}
             onQuestionWrong={onQuestionWrong}
           />

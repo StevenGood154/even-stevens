@@ -15,6 +15,25 @@ export const createUser = (newUser) => {
   user.set("lastName", newUser.lastName);
   user.set("password", newUser.password);
   user.set("email", newUser.email);
+  user.set("totalAnswered", 0);
+  user.set("totalCorrect", 0);
+  user.set("highScore", 0);
+  user.set("categoryAnswered", {
+    'General Knowledge': 0,
+    'Entertainment': 0,
+    'Science': 0,
+    'Sports': 0,
+    'Geography': 0,
+    'History': 0
+  });
+  user.set("categoryCorrect", {
+    'General Knowledge': 0,
+    'Entertainment': 0,
+    'Science': 0,
+    'Sports': 0,
+    'Geography': 0,
+    'History': 0
+  });
 
   console.log("User: ", user);
   return user

@@ -6,13 +6,13 @@ Parse.initialize(
 );
 Parse.serverURL = "https://parseapi.back4app.com/";
 
-// Loads all Question objects from the database
-export const getQuestions = () => {
+export const getQuestionsByCategory = (categoryName) => {
   const Question = Parse.Object.extend("Question");
   const query = new Parse.Query(Question);
+  if (categoryName !== "All") {
+    query.equalTo('category', categoryName);
+  }
   return query.find().then((questions) => {
     return questions;
   });
-};
-
-// To do: load a question that belongs to a specific category
+}
