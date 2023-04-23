@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { getStatsForCurrentUser } from "../../Services/StatsService.js";
+import { logoutUser } from "../../Services/StatsService.js";
 // import { getAllAccounts } from "../../Services/AccountsService.js";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import '../Game/Game.css';
 
 // Routed component that will eventually show stats for a specific user and by category
 const Stats = () => {
@@ -13,16 +15,23 @@ const Stats = () => {
       'categoryCorrect': {},
       'highScore': ''
     });
-    let categories = ['General Knowledge', 'Entertainment', 'Science', 'Sports', 'Geography', 'History']
+    let categories = ['General Knowledge', 'Entertainment', 'Science', 'Sports', 'Geography', 'History'];
+    const navigate = useNavigate();
 
     useEffect(() => {
       let acc = getStatsForCurrentUser();
       setAccount(acc);
     }, []);
+
+    const onLogoutUser = () => {
+      logoutUser();
+      navigate('/');
+    }
   
     return (
       <div>
-        <Link to="/game">Back to Questions</Link>
+        <button className="gameButton" onClick={() => navigate('/game')}>Back to Questions</button>
+        <button className="gameButton" onClick={onLogoutUser}>Log Out</button>
         <h3>Stats for User: {account['name']}</h3>
         <h4>High Score: {account['highScore']}</h4>
         <h3>Total Stats</h3>

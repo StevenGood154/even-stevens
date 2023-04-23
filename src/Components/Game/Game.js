@@ -2,7 +2,7 @@ import React from "react";
 import Question from "./Question";
 import Timer from "./Timer";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { getQuestionsByCategory } from "../../Services/QuestionsService";
 import { logoutUser } from "../../Services/StatsService";
 import { updateStats } from "../../Services/StatsService";
@@ -13,6 +13,7 @@ const Game = ({ category }) => {
   // const [questionNumber, setQuestionNumber] = useState(0);
   // const [score, setScore] = useState(0);
   const [data, setData] = useState([0, 0]);
+  const navigate = useNavigate();
 
   // Gets questions from backend database
   useEffect(() => {
@@ -39,13 +40,21 @@ const Game = ({ category }) => {
 
   function onTimerExpire() {
     console.log("GAME OVER");
+    navigate('/select');
   }
+
+  function onLogoutUser() {
+    logoutUser();
+    navigate('/');
+  }
+
 
 
   return (
     <div className="gameBox">
-      <Link to="/stats">View User Stats</Link>
-      <button onClick={logoutUser}>Log Out</button>
+      <button className="gameButton" onClick={() => navigate('/select')}>Select Category</button>
+      <button className="gameButton" onClick={() => navigate('/stats')}>View User Stats</button>
+      <button className="gameButton" onClick={onLogoutUser}>Log Out</button>
       <h2>Score: {data[1]}</h2>
       <Timer onTimerExpire={onTimerExpire}></Timer>
         {questions.length > 0 && (
