@@ -40,3 +40,12 @@ export const logoutUser = () => {
         console.error('Error logging out user', error);
     });
 }
+
+export const updateHighScore = (score) => {
+    const currentUser = Parse.User.current();
+    const highScore = currentUser.get("highScore");
+    if (score > highScore) {
+        currentUser.set('highScore', score);
+        currentUser.save();
+    }
+}

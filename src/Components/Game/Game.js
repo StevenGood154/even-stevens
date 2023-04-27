@@ -4,7 +4,7 @@ import Timer from "./Timer";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getQuestionsByCategory } from "../../Services/QuestionsService";
-import { logoutUser } from "../../Services/StatsService";
+import { logoutUser, updateHighScore } from "../../Services/StatsService";
 import { updateStats } from "../../Services/StatsService";
 import "./Game.css";
 
@@ -19,6 +19,7 @@ const Game = ({ category }) => {
   useEffect(() => {
     getQuestionsByCategory(category).then((questions) => {
       setQuestions(questions);
+      console.log("Number of questions:", questions.length);
     });
   }, [category]);
 
@@ -40,6 +41,7 @@ const Game = ({ category }) => {
 
   function onTimerExpire() {
     console.log("GAME OVER");
+    updateHighScore(data[1]);
     navigate('/select');
   }
 
