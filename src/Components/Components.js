@@ -24,6 +24,7 @@ const Components = () => {
         <Route path="/login" element={<AuthLogin />}></Route>
         <Route path="/game" element={<ProtectedRoute path="/game" element={Game} category={category}/>}></Route>
         <Route path="/stats" element={<ProtectedRoute path="/stats" element={Stats} />}></Route>
+        {/* Make this next route protected */}
         <Route path="/select" element={<SelectCategory handleClick={handleCategoryChoice} />}></Route>
         <Route path="*" element={<Navigate to="/game" replace />} />
       </Routes>

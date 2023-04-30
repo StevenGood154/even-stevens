@@ -18,7 +18,8 @@ const Game = ({ category }) => {
   // Gets questions from backend database
   useEffect(() => {
     getQuestionsByCategory(category).then((questions) => {
-      setQuestions(questions);
+      // Shuffle Questions
+      setQuestions(questions.sort(() => Math.random() - 0.5));
       console.log("Number of questions:", questions.length);
     });
   }, [category]);
