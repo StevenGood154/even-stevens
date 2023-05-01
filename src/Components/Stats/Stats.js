@@ -32,9 +32,8 @@ const Stats = () => {
       <div>
         <button className="gameButton" onClick={() => navigate('/game')}>Back to Questions</button>
         <button className="gameButton" onClick={onLogoutUser}>Log Out</button>
-        <h3>Stats for User: {account['name']}</h3>
-        <h4>High Score: {account['highScore']}</h4>
-        <h3>Total Stats</h3>
+        <h2>Stats for User: {account['name']}</h2>
+        <h3>High Score: {account['highScore']}</h3>
         <h4>Accuracy: {(account['totalCorrect']/account['totalAnswered']*100).toFixed(1)}%, Questions Answered: {account['totalAnswered']}</h4>
         <h4>Accuracy by Category</h4>
         <ul>

@@ -10,13 +10,14 @@ import SelectCategory from "./Game/SelectCategory.js";
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 
 const Components = () => {
+  // Stores category selected in SelectCategory component and sends it to the Game component
   const [category, setCategory] = useState("All");
 
   const handleCategoryChoice = (cat) => {
     setCategory(cat);
   }
 
-  // Currently routing to the main Game page as well as a Stats page, may eventually add more routes
+  // Routes to different pages used in the app, all are protected except the auth components
   return (
     <Router>
       <Routes>
@@ -26,8 +27,7 @@ const Components = () => {
         <Route path="/game" element={<ProtectedRoute path="/game" element={Game} category={category}/>}></Route>
         <Route path="/gameover" element={<ProtectedRoute path="/gameover" element={GameOver}/>}></Route>
         <Route path="/stats" element={<ProtectedRoute path="/stats" element={Stats} />}></Route>
-        {/* Make this next route protected */}
-        <Route path="/select" element={<SelectCategory handleClick={handleCategoryChoice} />}></Route>
+        <Route path='/select' element={<ProtectedRoute path='/select' element={SelectCategory} handleClick={handleCategoryChoice}/>} ></Route>
         <Route path="*" element={<Navigate to="/game" replace />} />
       </Routes>
     </Router>

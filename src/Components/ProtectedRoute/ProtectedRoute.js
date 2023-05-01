@@ -17,6 +17,8 @@ const ProtectedRoute = ({ element: Component, ...rest }) => {
   if (checkUser()) {
     if (rest['category']) {
       return <Component category={rest['category']}/>;
+    } else if (rest['handleClick']) {
+      return <Component handleClick={rest['handleClick']} />;
     } else {
       return <Component />
     }
