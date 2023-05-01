@@ -4,6 +4,7 @@
   background-color: lightgray;
   border-color: darkgray;
   border-style: solid;
+  margin: 5px;
 
   font-family: 'Roboto Slab', serif;
 }
@@ -42,7 +43,6 @@
   .gameButton {
     width: 100px;
     height: 60px;
-    margin: 5px;
     font-size: 14px;
   }
 }
@@ -51,7 +51,6 @@
   .gameButton {
     width: 200px;
     height: 50px;
-    margin: 5px;
     font-size: 20px;
   }
 }
