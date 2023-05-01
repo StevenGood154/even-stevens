@@ -1,7 +1,7 @@
 import "./Timer.css";
 import { useState } from "react";
 
-const Button = (props) => {
+const Timer = (props) => {
   const [timer, setTimer] = useState(60);
 
   const decrement = () => {
@@ -22,4 +22,4 @@ const Button = (props) => {
   );
 };
 
-export default Button;
+export default Timer;

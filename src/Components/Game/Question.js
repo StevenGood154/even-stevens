@@ -1,4 +1,4 @@
-import Button from "./Button.js";
+import QuestionButton from "./QuestionButton.js";
 import "./Question.css";
 import { useEffect, useRef, useState } from "react";
 
@@ -35,7 +35,7 @@ const Question = ( props ) => {
         <ul className="answerChoiceBlock">
           {shuffledAnswers.map((answer) => (
             <li key={answer.text}>
-              <Button ref={answer.isCorrect ? correctAnswerButton : null}
+              <QuestionButton ref={answer.isCorrect ? correctAnswerButton : null}
                 buttonText={answer.text}
                 onClick={answer.isCorrect ? handleOnQuestionRight : handleOnQuestionWrong}
                 isEnabled={props.isEnabled}
