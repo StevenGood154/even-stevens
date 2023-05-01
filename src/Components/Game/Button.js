@@ -1,13 +1,14 @@
+import { forwardRef } from "react";
 import "./Button.css";
 
 // buttonText : what is displayed on button
-const Button = ({ buttonText, onAnswerChoiceClick }) => {
-  let txt = new DOMParser().parseFromString(buttonText, "text/html");
+const Button = forwardRef(( props, ref ) => {
+  let txt = new DOMParser().parseFromString(props.buttonText, "text/html");
   let newButtonText = txt.documentElement.textContent;
 
-  return (<button onClick={onAnswerChoiceClick} className="button">
+  return (<button ref={ref} onClick={props.isEnabled ? props.onClick : ()=>{} } className="button">
     {newButtonText}
   </button>);
-};
+});
 
 export default Button;

@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import Game from "./Game/Game.js";
+import GameOver from "./Game/GameOver.js"
 import Stats from './Stats/Stats.js';
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute.js";
 import AuthRegister from "./Auth/AuthRegister.js";
@@ -23,6 +24,7 @@ const Components = () => {
         <Route path="/register" element={<AuthRegister />}></Route>
         <Route path="/login" element={<AuthLogin />}></Route>
         <Route path="/game" element={<ProtectedRoute path="/game" element={Game} category={category}/>}></Route>
+        <Route path="/gameover" element={<ProtectedRoute path="/gameover" element={GameOver}/>}></Route>
         <Route path="/stats" element={<ProtectedRoute path="/stats" element={Stats} />}></Route>
         {/* Make this next route protected */}
         <Route path="/select" element={<SelectCategory handleClick={handleCategoryChoice} />}></Route>

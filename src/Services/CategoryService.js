@@ -23,15 +23,12 @@ export const getCategoryById = (id) => {
     return result;
   }).catch((error) => {
     console.error(`Error finding category with id of ${id}: ${error}`)
-    console.log(id);
   })
 }
 
 // Get a category for a specific ID, taken from the pointer in the Question class
 export const getCategoriesPerQuestion = (questions) => {
-  console.log(questions);
   questions.forEach(question => {
-    console.log(question.get("categoryId"));
     return getCategoryById(question.get("categoryId"));
   });
   return questions.forEach(question => {

@@ -9,7 +9,11 @@
 }
 
 .questionText {
+  padding-left: 10%;
+  padding-right: 10%;
   font-size: 32px;
+  height: 5em;
+  align-self: center;
 }
 
 .answerChoiceBlock {
@@ -25,3 +29,8 @@
   /* background-color: deepskyblue; */
 }
 
+.gameBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

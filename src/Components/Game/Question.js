@@ -1,28 +1,32 @@
 import Button from "./Button.js";
 import "./Question.css";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-const Question = ({
-  questionText,
-  answers,
-  correctAnswer,
-  onQuestionRight,
-  onQuestionWrong,
-}) => {
+const Question = ( props ) => {
   const [shuffledAnswers, setShuffledAnswers] = useState(null);
+  const correctAnswerButton = useRef(null);
 
   useEffect(() => {
-    if (answers) {
+    if (props.answers) {
       setShuffledAnswers(
-        answers
-          .map((answer) => ({ text: answer, isCorrect: answer === correctAnswer }))
-          .sort(() => Math.random() - 0.5)
+        props.answers
+          .map((answer) => ({ text: answer, isCorrect: answer === props.correctAnswer }))
+          .sort((a, b) => a.text.localeCompare(b.text))
       );
     }
-  }, [answers, correctAnswer]);
+  }, [props.answers, props.correctAnswer]);
 
-  let txt = new DOMParser().parseFromString(questionText, "text/html");
+  let txt = new DOMParser().parseFromString(props.questionText, "text/html");
   let newQuestion = txt.documentElement.textContent;
+
+  function handleOnQuestionRight(e) {
+    props.onQuestionRight(e)
+  }
+
+  function handleOnQuestionWrong(e) {
+    correctAnswerButton.current.className = "correctButton"
+    props.onQuestionWrong(e)
+  }
 
   return (
     <div className="questionBlock">
@@ -31,9 +35,10 @@ const Question = ({
         <ul className="answerChoiceBlock">
           {shuffledAnswers.map((answer) => (
             <li key={answer.text}>
-              <Button
+              <Button ref={answer.isCorrect ? correctAnswerButton : null}
                 buttonText={answer.text}
-                onAnswerChoiceClick={answer.isCorrect ? onQuestionRight : onQuestionWrong}
+                onClick={answer.isCorrect ? handleOnQuestionRight : handleOnQuestionWrong}
+                isEnabled={props.isEnabled}
               />
             </li>
           ))}

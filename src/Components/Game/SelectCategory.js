@@ -4,17 +4,10 @@ import './SelectCategory.css';
 
 const SelectCategory = ({handleClick}) => {
     const navigate = useNavigate();
-    const [clicked, setClicked] = useState(false);
-
-    useEffect(() => {
-        if (clicked) {
-          navigate('/game');
-        }
-      }, [clicked, navigate]);
 
     const clickHandler = (newCat) => {
-        setClicked(true);
         handleClick(newCat);
+        navigate('/game');
     }
 
     return (
