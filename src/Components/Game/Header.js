@@ -10,7 +10,7 @@ const Header = () => {
     navigate('/');
   }
   return (
-    <div>
+    <div class="header">
         <button className="gameButton" onClick={() => navigate('/select')}>Select Category</button>
         <button className="gameButton" onClick={() => navigate('/stats')}>View User Stats</button>
         <button className="gameButton" onClick={onLogoutUser}>Log Out</button>

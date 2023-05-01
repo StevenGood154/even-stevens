@@ -4,33 +4,49 @@
   flex-direction: column;
 }
 
-.categoryText {
-  font-size: 16px;
-}
-
 .questionText {
+  text-align: center;
+  align-self: center;
   padding-left: 10%;
   padding-right: 10%;
-  font-size: 32px;
   height: 5em;
-  align-self: center;
 }
 
 .answerChoiceBlock {
   display: grid;
-  grid-template-columns: 300px 300px;
-  grid-template-rows: 80px 80px;
-  column-gap: 40px;
-  row-gap: 40px;
-
   list-style: none;
   margin: 0;
   padding: 0;
-  /* background-color: deepskyblue; */
 }
 
 .gameBox {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+@media (max-width: 768px) {
+  .answerChoiceBlock {
+    grid-template-columns: 150px 150px;
+    grid-template-rows: 60px 60px;
+    column-gap: 20px;
+    row-gap: 20px;
+  }
+
+  .questionText {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 769px) {
+  .answerChoiceBlock {
+    grid-template-columns: 300px 300px;
+    grid-template-rows: 80px 80px;
+    column-gap: 40px;
+    row-gap: 40px;
+  }
+
+  .questionText {
+    font-size: 32px;
+  }
 }

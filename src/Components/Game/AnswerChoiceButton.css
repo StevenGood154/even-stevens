@@ -1,13 +1,9 @@
-.button {
+.answerChoiceButton {
   border-width: 4px;
   border-radius: 4px;
-  width: 300px;
-  height: 80px;
   background-color: lightgray;
   border-color: darkgray;
   border-style: solid;
-
-  font-size: 20px;
   font-family: 'Roboto Slab', serif;
 }
 
@@ -19,27 +15,35 @@
 .incorrectButton {
   border-width: 4px;
   border-radius: 4px;
-  width: 300px;
-  height: 80px;
   background-color: darkred;
   border-color: rgb(182, 35, 35);
   color: white;
   border-style: solid;
-
-  font-size: 20px;
   font-family: 'Roboto Slab', serif;
 }
 
 .correctButton {
   border-width: 4px;
   border-radius: 4px;
-  width: 300px;
-  height: 80px;
   background-color: darkgreen;
   border-color: green;
   color: white;
   border-style: solid;
-
-  font-size: 20px;
   font-family: 'Roboto Slab', serif;
+}
+
+@media (max-width: 768px) {
+  .answerChoiceButton, .incorrectButton, .correctButton {
+    width: 150px;
+    height: 60px;
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 769px) {
+  .answerChoiceButton, .incorrectButton, .correctButton {
+    width: 300px;
+    height: 80px;
+    font-size: 20px;
+  }
 }

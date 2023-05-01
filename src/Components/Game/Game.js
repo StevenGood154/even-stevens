@@ -47,7 +47,7 @@ const Game = (props) => {
     setTimeout(() => { 
       setQuestionNumber(questionNumber + 1)
       setQuestionButtonsEnabled(true)
-    }, 1500);
+    }, 3000);
   }
 
   function onTimerExpire() {
