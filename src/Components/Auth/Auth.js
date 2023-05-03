@@ -7,7 +7,7 @@ import './AuthButton.css';
 const AuthModule = () => {
   const navigate = useNavigate();
 
-  // redirect already authenticated users back to home
+  // redirect already authenticated users back to select category screen
   useEffect(() => {
     if (checkUser()) {
       alert("You are already logged in");

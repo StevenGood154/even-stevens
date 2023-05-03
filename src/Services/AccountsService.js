@@ -14,5 +14,3 @@ export const getAllAccounts = () => {
     return users;
   });
 };
-
-// To do: load an account for a specific user, to get their individual stats

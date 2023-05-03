@@ -9,6 +9,8 @@ const Header = () => {
     logoutUser();
     navigate('/');
   }
+
+  // 3 buttons: Select Category, View User Stats, and Log Out
   return (
     <div class="header">
         <button className="gameButton" onClick={() => navigate('/select')}>Select Category</button>

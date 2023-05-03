@@ -16,6 +16,7 @@ const Question = ( props ) => {
     }
   }, [props.answers, props.correctAnswer]);
 
+  // Gets rid of weird HTML characters that were in the questions we pulled
   let txt = new DOMParser().parseFromString(props.questionText, "text/html");
   let newQuestion = txt.documentElement.textContent;
 

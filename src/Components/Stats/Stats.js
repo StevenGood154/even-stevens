@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { getStatsForCurrentUser } from "../../Services/StatsService.js";
 import { logoutUser } from "../../Services/StatsService.js";
-// import { getAllAccounts } from "../../Services/AccountsService.js";
 import { useNavigate } from "react-router-dom";
 import '../Game/Game.css';
 
-// Routed component that will eventually show stats for a specific user and by category
 const Stats = () => {
+    // skeleton for data that will be pulled for user
     const [account, setAccount] = useState({
       'name': '',
       'totalCorrect': '',

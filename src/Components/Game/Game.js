@@ -72,7 +72,7 @@ const Game = (props) => {
             correctAnswer={questions[questionNumber].get("correct_answer")}
             onQuestionRight={onQuestionRight}
             onQuestionWrong={onQuestionWrong}
-            isEnabled={questionButtonsEnabled} // when false, user cannot select answers
+            isEnabled={questionButtonsEnabled} // when false, user cannot select answers (for testing purposes)
           />
         )}
     </div>

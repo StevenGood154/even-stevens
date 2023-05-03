@@ -15,7 +15,7 @@ const AuthRegister = () => {
 
   const [add, setAdd] = useState(false);
 
-  // redirect already authenticated users back to home
+  // redirect already authenticated users back to select category page
   useEffect(() => {
     if (checkUser()) {
       alert("You are already logged in");

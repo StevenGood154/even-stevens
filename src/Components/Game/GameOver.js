@@ -4,7 +4,7 @@ import "./GameOver.css";
 
 const GameOver = () => {
   const location = useLocation();
-  const score = location.state?.score;
+  const score = location.state?.score;  // To display user's score on the game over screen
 
   const navigate = useNavigate();
 

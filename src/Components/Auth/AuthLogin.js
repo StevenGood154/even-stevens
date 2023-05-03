@@ -17,7 +17,7 @@ const AuthLogin = () => {
   // don't let user do anything if they're already logged in
   useEffect(() => {
     if (checkUser()) {
-      alert("You are already logged in"); // Remove this in the future?
+      alert("You are already logged in");
       navigate("/select");
     }
   }, [navigate]);
