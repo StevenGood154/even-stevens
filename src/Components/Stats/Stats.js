@@ -38,16 +38,16 @@ const Stats = () => {
         <ul>
           {categories.map((cat) => {
             if (account['categoryAnswered'][cat] > 0) {
-              return (<li>{cat}: {(100*account['categoryCorrect'][cat]/account['categoryAnswered'][cat]).toFixed(1)}%</li>)
+              return (<li key={cat}>{cat}: {(100*account['categoryCorrect'][cat]/account['categoryAnswered'][cat]).toFixed(1)}%</li>)
             } else {
-              return (<li>{cat}: None Answered</li>)
+              return (<li key={cat}>{cat}: None Answered</li>)
             }
           })}
         </ul>
         <h4>Questions Answered by Category</h4>
         <ul>
           {categories.map((cat) => {
-            return (<li>{cat}: {account['categoryAnswered'][cat]}</li>)
+            return (<li key={cat}>{cat}: {account['categoryAnswered'][cat]}</li>)
           })}
         </ul>
       </div>

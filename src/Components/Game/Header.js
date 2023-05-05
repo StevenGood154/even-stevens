@@ -12,7 +12,7 @@ const Header = () => {
 
   // 3 buttons: Select Category, View User Stats, and Log Out
   return (
-    <div class="header">
+    <div className="header">
         <button className="gameButton" onClick={() => navigate('/select')}>Select Category</button>
         <button className="gameButton" onClick={() => navigate('/stats')}>View User Stats</button>
         <button className="gameButton" onClick={onLogoutUser}>Log Out</button>
