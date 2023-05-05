@@ -31,3 +31,25 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Slight delay before next question loads if your answer is incorrect
  
 ### Fixed
+
+## [1.0.0] - 2023-05-06
+
+### Added
+
+- Select category page so user can choose a category to answer questions from
+- Timer component
+- Game over screen
+- Score to keep track number of questions answered correctly
+- Log out button & header to navigate
+- Website deployed to Netlify (https://trivia-game-webdev.netlify.app)
+ 
+### Changed
+  
+- Responsive styling so app appears well on mobile
+- Correct answer now appears green if user selects wrong answer
+- Stats page now shows actual user’s stats, including high score, accuracy, questions answered, and accuracy and questions answered by category
+- Increased delay between questions to 3 seconds if you are incorrect
+ 
+### Fixed
+
+- User is now able to only select one answer choice
